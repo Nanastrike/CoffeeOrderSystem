@@ -9,7 +9,7 @@ USE coffee_shop;
 -- table structure for table 
 --
 CREATE TABLE IF NOT EXISTS `registration`(
-    `id` int NOT NULL AUTO_INCREMENT,
+    `user_id` int NOT NULL AUTO_INCREMENT,
     `name` varchar(100) NOT NULL,
     `email_address` varchar(200) NOT NULL,
     `password` varchar(255) NOT NULL,
@@ -23,9 +23,9 @@ CREATE TABLE IF NOT EXISTS `order_list`(
     `product_name` varchar(50) NOT NULL,
     `product_price` DECIMAL(10,2) NOT NULL,
     `product_num` int NOT NULL,
-    `registration_id` int NOT NULL,
+    `registration_user_id` int NOT NULL,
     PRIMARY KEY (`order_id`),
-    FOREIGN KEY (`registration_id`) REFERENCES `registration`(`id`)
+    FOREIGN KEY (`registration_user_id`) REFERENCES `registration`(`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1;
 
 -- table structure for coffee details
@@ -37,7 +37,19 @@ CREATE TABLE IF NOT EXISTS `coffee_details`(
     `ice` varchar(45) NOT NULL,
     `milk` varchar(45) NOT NULL,
     `coffee_description` varchar(200) NOT NULL,
-    `order_list_order_id` int,
+    `order_list_order_id` int NULL,
     PRIMARY KEY (`coffee_name`),
     FOREIGN KEY (`order_list_order_id`) REFERENCES `order_list`(`order_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1;
+
+-- Insert data into registration
+INSERT INTO `registration` (`name`, `email_address`, `password`)
+VALUES ('Alice', 'alice@example.com', 'hashed_password');
+
+-- Insert data into order_list
+INSERT INTO `order_list` (`product_name`, `product_price`, `product_num`, `registration_user_id`)
+VALUES ('Latte', 4.50, 2, 1);
+
+-- Insert data into coffee_details
+INSERT INTO `coffee_details` (`coffee_name`, `coffee_price`, `cup_size`, `ice`, `milk`, `coffee_description`, `order_list_order_id`)
+VALUES ('Latte', 4.50, 'Medium', 'No', 'Whole Milk', 'Delicious creamy latte', 1);
