@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS `registration`(
     `name` varchar(100) NOT NULL,
     `email_address` varchar(200) NOT NULL,
     `password` varchar(255) NOT NULL,
-    PRIMARY KEY (`id`)
+    PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1;
 
 -- table history order list
