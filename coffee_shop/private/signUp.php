@@ -7,7 +7,7 @@ error_reporting(E_ALL);
 require_once('database.php');
 $db = db_connect();
 
-//handle form values sent by new.php
+//handle form values sent by register.php
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){ //if user clicks submit
     //access the form data
     $nameInput = $_POST['name'];

@@ -49,6 +49,8 @@ VALUES ('Alice', 'alice@example.com', 'hashed_password');
 -- Insert data into order_list
 INSERT INTO `order_list` (`product_name`, `product_price`, `product_num`, `registration_user_id`)
 VALUES ('Latte', 4.50, 2, 1);
+VALUES ('Coffee1', 6.70, 1, 1);
+VALUES ('Coffee2', 10.70, 2, 1);
 
 -- Insert data into coffee_details
 INSERT INTO `coffee_details` (`coffee_name`, `coffee_price`, `cup_size`, `ice`, `milk`, `coffee_description`, `order_list_order_id`)

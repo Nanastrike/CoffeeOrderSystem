@@ -1,7 +1,7 @@
 
 
 <?php   
-//insert the header code here
+//TODO:insert the header code here
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -34,7 +34,6 @@ error_reporting(E_ALL);
     <script src="script.js" defer></script>
 </head>
 <body>
-<!--<?php include("headerEm.php"); ?> -->
     
     <div class="page" id="order-page">
         <div class="brand-banner">
@@ -79,7 +78,11 @@ error_reporting(E_ALL);
                 </div>
             <?php } ?>
         </div>
-        <button class="btn" id="go-to-cart" onclick="window.location.href='cart.html'">Go to Cart</button>
+        <button class="btn" id="go-to-cart" href='cart.php'>Go to Cart</button>
+                
+
+        <!--TODO: add a button to the order list page-->
+        <button class="btn" id="go-to-order-list" onclick="window.location.href='order-list.php'">View Order History</button>
     </div>
 
             <!-- 商品2 
@@ -109,7 +112,8 @@ error_reporting(E_ALL);
                 <button type="button" class="btn-add-to-cart" name="add-to-cart">Add to Cart</button>
             </div> -->
         </div>
-        <button class="btn" id="go-to-cart" name="go-to-cart" >Go to Cart</button>
+        <button class="btn" id="go-to-cart" onclick="window.location.href='cart.php'">Go to Cart</button>
+
     </div>
 
         <!--TO DO: add a fixed footer php file
