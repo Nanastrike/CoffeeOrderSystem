@@ -1,0 +1,437 @@
+/* 设置整个页面的背景图 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('./pictures/login.jpg'); /* 确保路径正确 */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* 表单区域样式 */
+.auth-forms {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95); /* 半透明白色背景 */
+    border-radius: 10px;
+    /*box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);*/
+}
+
+/* 标题样式 */
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 32px; /* 调整字体大小 */
+}
+
+/* 表单标题 */
+.register-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.register-title, .login-title {
+    font-size: 24px;
+    margin: 0;
+    color: #000;
+}
+
+/* 登录/注册按钮样式 */
+.register-btn, .login-btn {
+    font-size: 16px;
+    text-decoration: none;
+    color: white;
+    background: black;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.register-btn:hover, .login-btn:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+/* 输入框样式 */
+#register-form label, #login-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.input-field {
+    display: block;
+    width: calc(100% - 20px);
+    margin: 0 auto 15px auto;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* 按钮样式 */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    font-size: 16px;
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: black;
+    color: white;
+}
+
+/* 响应式设计 */
+@media (max-width: 600px) {
+    .auth-forms {
+        width: 90%;
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .register-title, .login-title {
+        font-size: 18px;
+    }
+
+    .register-btn, .login-btn {
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+    .auth-forms {
+        width: 80%;
+    }
+}
+
+@media (min-width: 1025px) {
+    .auth-forms {
+        max-width: 500px;
+    }
+}
+
+/*Product List*/
+/* 标题和描述样式修改 */
+.store-info {
+    text-align: center; /* 文本居中 */
+    color: white; /* 文本颜色变为白色 */
+}
+
+.store-info h2 {
+    margin: 5px; 
+    padding: 5px; 
+}
+
+.store-info p {
+    margin-top: 5px; 
+    padding: 5px; 
+}
+
+/*Product List*/
+/* 页面布局 */
+.products {
+    display: flex;
+    flex-wrap: wrap; /* 自动换行 */
+    gap: 20px; /* 卡片之间的间距 */
+    justify-content: center; 
+    padding: 20px;
+}
+
+/* 单个商品卡片样式 */
+.product {
+    background: rgba(255, 255, 255, 0.95); /* 白色背景 */
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    text-align: center;
+}
+
+
+
+/* 商品描述和价格颜色修改 */
+.product-description,
+.product-price {
+    color: black; /* 修改为黑色 */
+}
+
+/* 按钮样式 */
+.btn-add-to-cart {
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+.btn-add-to-cart:hover {
+    background-color: darkgreen;
+}
+
+/* 搜索框和筛选框样式 */
+.filter-search {
+    display: flex;
+    flex-wrap: wrap; /* 支持换行 */
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* 搜索框和筛选框之间的间距 */
+    margin-bottom: 20px;
+}
+
+#search-input {
+    width: 70%; /* 默认小屏幕宽度 */
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#price-filter {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* 大屏幕适配 */
+@media (min-width: 1025px) {
+    .product {
+        width: 45%; /* 大屏幕时每行两个商品 */
+        max-width: 400px; /* 最大宽度 */
+    }
+
+    #search-input {
+        width: 50%; /* 搜索框宽度为屏幕的一半 */
+    }
+
+    .filter-search {
+        flex-wrap: nowrap; /* 搜索和筛选框在一行 */
+    }
+}
+
+/* 小屏幕适配 */
+@media (max-width: 1024px) {
+    .product {
+        width: 90%; /* 小屏幕时每行一个商品 */
+    }
+
+    #search-input {
+        width: 70%; /* 搜索框宽度为屏幕的 70% */
+    }
+}
+
+/*Order List*/
+/* 标题样式 */
+#order-success-page h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* 订单列表样式 */
+#order-success-page .order-list {
+    display: flex;
+    flex-direction: column; /* 垂直排列订单 */
+    gap: 10px; /* 每个订单之间的间距 */
+    align-items: center; /* 居中对齐 */
+}
+
+/* 单个订单卡片样式 */
+#order-success-page .order {
+    background-color: #fff; /* 白色背景 */
+    border-radius: 10px;
+    padding: 10px 20px;
+    width: 100%; /* 占满父容器宽度 */
+    max-width: 80%; /* 最大宽度 */
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+/* 左侧信息 */
+#order-success-page .order .order-info {
+    display: flex;
+    flex-direction: column; 
+    gap: 5px;
+    flex: 2;
+}
+
+#order-success-page .order .order-info h2 {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+}
+
+#order-success-page .order .order-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* 右侧信息 */
+#order-success-page .order .order-total {
+    text-align: right;
+    flex: 1;
+}
+
+#order-success-page .order .order-total p {
+    font-size: 14px;
+    margin: 0;
+    color: #333;
+    font-weight: bold;
+}
+
+/* 响应式设计：确保小屏幕样式 */
+@media (max-width: 1024px) {
+    #order-success-page .order {
+        flex-direction: column; /* 小屏幕下垂直排列 */
+        align-items: flex-start;
+    }
+
+    #order-success-page .order .order-total {
+        text-align: left;
+        margin-top: 10px;
+    }
+}
+
+/* 针对购物车页面的样式 */
+#cart-page {
+    background-color: #fff; /* 白色背景 */
+    padding: 20px;
+}
+
+/* 标题样式 */
+#cart-page h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* 购物车 */
+.cart-items {
+    display: flex;
+    flex-direction: column; /* 默认垂直排列 */
+    gap: 15px; /* 每个购物车商品之间的间距 */
+    align-items: center; /* 居中对齐 */
+}
+
+/* 单个购物车商品样式 */
+.cart-item {
+    background-color: #fff;
+    border-radius: 10px;
+
+    padding: 10px 20px;
+    width: 100%;
+    max-width: 800px; /* 最大宽度 */
+    display: flex; /* 使用 Flex 布局 */
+    justify-content: space-between; /* 项目之间的间距自动分配 */
+    align-items: center; /* 垂直居中对齐 */
+}
+
+/* 商品名称和价格信息 */
+.cart-item .cart-item-name {
+    font-size: 16px;
+    color: #333;
+    margin: 0;
+    font-weight: bold;
+}
+
+.cart-item .cart-item-price {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+/* 商品数量信息 */
+.cart-item .cart-item-quantity {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+}
+
+/* 控制按钮区域 */
+.cart-controls {
+    display: flex;
+    gap: 10px; /* 按钮之间的间距 */
+}
+
+.cart-controls button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    font-size: 14px;
+}
+
+.cart-controls button:hover {
+    background-color: #0056b3;
+}
+
+/* 购物车总计信息 */
+.cart-total {
+    text-align: right;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0;
+    color: #333;
+}
+
+/* 确认订单按钮 */
+#confirm-order {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    display: block;
+    margin: 0 auto;
+}
+
+#confirm-order:hover {
+    background-color: #218838;
+}
+
+/* 响应式设计 */
+@media (min-width: 1025px) {
+    .cart-item {
+        flex-direction: row; /* 横向排列信息 */
+    }
+}
+
+@media (max-width: 1024px) {
+    .cart-item {
+        flex-direction: column; /* 小屏幕下垂直排列 */
+        align-items: flex-start;
+    }
+
+    .cart-controls {
+        margin-top: 10px;
+    }
+}
