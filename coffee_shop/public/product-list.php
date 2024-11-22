@@ -103,8 +103,8 @@ error_reporting(E_ALL);
             </div>
         </div>
 
-        <button class="btn" id="go-to-cart" onclick="window.location.href='cart.html'">Go to Cart</button>
-    </div>
+        <button class="btn" id="go-to-cart" onclick="window.location.href='cart.php'">Go to Cart</button>
+        </div>
             <?php } ?>
 
         <!--TO DO: add a fixed footer php file
