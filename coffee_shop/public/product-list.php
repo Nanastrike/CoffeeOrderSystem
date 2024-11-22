@@ -60,7 +60,17 @@ error_reporting(E_ALL);
 
                 <!-- process the result-->
             <?php while ($result = mysqli_fetch_assoc($result_set)){?>
-            <!-- 商品1 -->
+
+                <div class="product">
+                    <img src="coffee1.jpg" alt="<?php echo htmlspecialchars($result['coffee_name']); ?>" class="product-image">
+                    <h3 class="product-name" name="product-name"><?php echo htmlspecialchars($result['coffee_name']);?></h3>
+                    <p class="product-description" name="product-description"><?php echo htmlspecialchars($result['coffee_description']); ?></p>
+                    <p class="product-price" name="product-price"><?php echo htmlspecialchars ($result['coffee_price']); ?></p>
+                </div>
+
+
+
+            <!-- 商品1 
             <div class="product" data-price="4.5" data-name="Latte">
                 <img src="coffee-latte.jpg" alt="Latte" class="product-image">
                 <h3 class="product-name">Latte-Hot</h3>
@@ -69,8 +79,8 @@ error_reporting(E_ALL);
                 <div class="product-variations">
                     <button class="btn-add-to-cart" onclick="addToCart('Latte', 'Hot')">Add</button>
                 </div>
-            </div>
-
+            </div>-->
+                <!-- 商品1 
             <div class="product" data-price="4.5" data-name="Latte">
                 <img src="coffee-latte.jpg" alt="Latte" class="product-image">
                 <h3 class="product-name">Latte-Cold</h3>
@@ -79,9 +89,9 @@ error_reporting(E_ALL);
                 <div class="product-variations">
                     <button class="btn-add-to-cart" onclick="addToCart('Latte', 'Cold')">Add</button>
                 </div>
-            </div>
+            </div>-->
 
-            <!-- 商品2 -->
+            <!-- 商品2 
             <div class="product" data-price="5" data-name="Cappuccino">
                 <img src="coffee-Cappuccino.jpg" alt="Cappuccino" class="product-image">
                 <h3 class="product-name">Cappuccino-Hot</h3>
@@ -90,8 +100,8 @@ error_reporting(E_ALL);
                 <div class="product-variations">
                     <button class="btn-add-to-cart" onclick="addToCart('Cappuccino', 'Hot')">Add</button>
                 </div>
-            </div>
-
+            </div>-->
+                <!-- 商品2 
             <div class="product" data-price="5" data-name="Cappuccino">
                 <img src="coffee-Cappuccino.jpg" alt="Cappuccino" class="product-image">
                 <h3 class="product-name">Cappuccino-Cold</h3>
@@ -100,7 +110,7 @@ error_reporting(E_ALL);
                 <div class="product-variations">
                     <button class="btn-add-to-cart" onclick="addToCart('Cappuccino', 'Cold')">Add</button>
                 </div>
-            </div>
+            </div>-->
         </div>
 
         <button class="btn" id="go-to-cart" onclick="window.location.href='cart.php'">Go to Cart</button>
