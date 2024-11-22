@@ -14,7 +14,7 @@ error_reporting(E_ALL);
     }
 
     // return all the coffee in the database
-    $sql = "SELECT coffee_name, coffee_price, coffee_description FROM coffee_details "; 
+    $sql = "SELECT coffee_name, coffee_price, coffee_description, image_path FROM coffee_details "; 
     $sql .= "ORDER BY coffee_name ASC";
     //execute the query
     $result_set = mysqli_query($db, $sql);
@@ -58,11 +58,11 @@ error_reporting(E_ALL);
         <div class="products">
             
 
-                <!-- process the result-->
+                <!-- process the result -->
             <?php while ($result = mysqli_fetch_assoc($result_set)){?>
 
                 <div class="product">
-                    <img src="coffee1.jpg" alt="<?php echo htmlspecialchars($result['coffee_name']); ?>" class="product-image">
+                    <img src="<?php echo htmlspecialchars($result['image_path']); ?>" alt="<?php echo htmlspecialchars($result['coffee_name']); ?>" class="product-image">
                     <h3 class="product-name" name="product-name"><?php echo htmlspecialchars($result['coffee_name']);?></h3>
                     <p class="product-description" name="product-description"><?php echo htmlspecialchars($result['coffee_description']); ?></p>
                     <p class="product-price" name="product-price"><?php echo htmlspecialchars ($result['coffee_price']); ?></p>

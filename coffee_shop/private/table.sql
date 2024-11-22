@@ -35,6 +35,7 @@ CREATE TABLE IF NOT EXISTS `coffee_details`(
     `coffee_price` DECIMAL  (10,2) NOT NULL,
     `coffee_description` varchar(200) NOT NULL,
     `order_list_order_id` int NULL,
+    `image_path` VARCHAR(255),
     PRIMARY KEY (`coffee_name`),
     FOREIGN KEY (`order_list_order_id`) REFERENCES `order_list`(`order_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1;
@@ -50,11 +51,11 @@ VALUES ('Coffee1', 6.70, 1, 1);
 VALUES ('Coffee2', 10.70, 2, 1);
 
 -- Insert data into coffee_details
-INSERT INTO `coffee_details` (`coffee_name`, `coffee_price`, `coffee_description`, `order_list_order_id`)
-VALUES ('Latte-Hot', 4.50,  'Rich and creamy latte. This is the hot option.', 1);
-INSERT INTO `coffee_details` (`coffee_name`, `coffee_price`, `coffee_description`, `order_list_order_id`)
-VALUES ('Latte-Cold', 5.50,  'Rich and creamy latte. This is the cold option.', 1);
-INSERT INTO `coffee_details` (`coffee_name`, `coffee_price`, `coffee_description`, `order_list_order_id`)
-VALUES ('Cappuccino-Hot', 6.0,  'A classic Italian coffee. This is the hot option.', 1);
-INSERT INTO `coffee_details` (`coffee_name`, `coffee_price`, `coffee_description`, `order_list_order_id`)
-VALUES ('Cappuccino-Cold', 11.0,  'A classic Italian coffee. This is the cold option.', 1);
+INSERT INTO `coffee_details` (`coffee_name`, `coffee_price`, `coffee_description`, `order_list_order_id`,`image_path`)
+VALUES ('Latte-Hot', 4.50,  'Rich and creamy latte. This is the hot option.', 1, '/coffee_shop/public/images/Latte-Hot.jpg');
+INSERT INTO `coffee_details` (`coffee_name`, `coffee_price`, `coffee_description`, `order_list_order_id`,`image_path`)
+VALUES ('Latte-Cold', 5.50,  'Rich and creamy latte. This is the cold option.', 1, '/coffee_shop/public/images/Latte-Cold.jpg');
+INSERT INTO `coffee_details` (`coffee_name`, `coffee_price`, `coffee_description`, `order_list_order_id`,`image_path`)
+VALUES ('Cappuccino-Hot', 6.0,  'A classic Italian coffee. This is the hot option.', 1, '/coffee_shop/public/images/Cappuccino-Hot.jpg');
+INSERT INTO `coffee_details` (`coffee_name`, `coffee_price`, `coffee_description`, `order_list_order_id`,`image_path`)
+VALUES ('Cappuccino-Cold', 11.0,  'A classic Italian coffee. This is the cold option.', 1, '/coffee_shop/public/images/Cappuccino-Cold.jpg');
