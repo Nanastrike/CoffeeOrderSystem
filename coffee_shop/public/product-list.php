@@ -31,7 +31,7 @@ error_reporting(E_ALL);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order Coffee</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <script src="scripts/search-filter.js" defer></script>
 </head>
 <body>
     <div class="page" id="order-page">
@@ -67,6 +67,9 @@ error_reporting(E_ALL);
                     <p class="product-description" name="product-description"><?php echo htmlspecialchars($result['coffee_description']); ?></p>
                     <p class="product-price" name="product-price"><?php echo htmlspecialchars ($result['coffee_price']); ?></p>
                 </div>
+                <button onclick="addItem('<?php echo $result['coffee_name']; ?>', <?php echo $result['coffee_price']; ?>)">
+                    Add to Cart
+                </button>
 
 
 
