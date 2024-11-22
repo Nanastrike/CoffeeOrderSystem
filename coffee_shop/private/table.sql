@@ -53,8 +53,8 @@ VALUES ('Coffee2', 10.70, 2, 1);
 INSERT INTO `coffee_details` (`coffee_name`, `coffee_price`, `coffee_description`, `order_list_order_id`)
 VALUES ('Latte-Hot', 4.50,  'Rich and creamy latte. This is the hot option.', 1);
 INSERT INTO `coffee_details` (`coffee_name`, `coffee_price`, `coffee_description`, `order_list_order_id`)
-VALUES ('Latte-Cold', 4.50,  'Rich and creamy latte. This is the cold option.', 1);
+VALUES ('Latte-Cold', 5.50,  'Rich and creamy latte. This is the cold option.', 1);
 INSERT INTO `coffee_details` (`coffee_name`, `coffee_price`, `coffee_description`, `order_list_order_id`)
-VALUES ('Cappuccino-Hot', 5.0,  'A classic Italian coffee. This is the hot option.', 1);
+VALUES ('Cappuccino-Hot', 6.0,  'A classic Italian coffee. This is the hot option.', 1);
 INSERT INTO `coffee_details` (`coffee_name`, `coffee_price`, `coffee_description`, `order_list_order_id`)
-VALUES ('Cappuccino-Cold', 5.0,  'A classic Italian coffee. This is the cold option.', 1);
+VALUES ('Cappuccino-Cold', 11.0,  'A classic Italian coffee. This is the cold option.', 1);
