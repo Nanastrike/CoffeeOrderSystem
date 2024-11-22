@@ -65,7 +65,7 @@ function validateRegisterForm(e) {
     const email = registerForm.querySelector("#register-email");
     const password = registerForm.querySelector("#register-password");
     const confirmPassword = registerForm.querySelector("#confirm-password");
-    const terms = registerForm.querySelector("#terms");
+  //const terms = registerForm.querySelector("#terms");
 
     let isValid = true;
 
@@ -90,15 +90,16 @@ function validateRegisterForm(e) {
         clearError(confirmPassword);
     }
 
-    if (!terms.checked) {
+/*  if (!terms.checked) {
         displayError(terms, termsErrorMsg);
         isValid = false;
     } else {
         clearError(terms);
     }
-
+*/
     if (!isValid) e.preventDefault();
-}
+} 
+
 
 // Attach Event Listeners
 if (loginForm) loginForm.addEventListener("submit", validateLoginForm);
