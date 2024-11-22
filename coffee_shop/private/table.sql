@@ -33,9 +33,6 @@ CREATE TABLE IF NOT EXISTS `order_list`(
 CREATE TABLE IF NOT EXISTS `coffee_details`(
     `coffee_name` varchar(50) NOT NULL,
     `coffee_price` DECIMAL  (10,2) NOT NULL,
-    `cup_size` varchar(45) NOT NULL,
-    `ice` varchar(45) NOT NULL,
-    `milk` varchar(45) NOT NULL,
     `coffee_description` varchar(200) NOT NULL,
     `order_list_order_id` int NULL,
     PRIMARY KEY (`coffee_name`),
