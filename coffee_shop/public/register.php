@@ -14,7 +14,7 @@
 
 <!-- TO DO: add a user name input
 the password need a double check, so the js validation will work-->
-    <form id="register-form" method="post" action="../private/signUp.php" name="register-form">
+    <form id="register-form" method="POST" action="../private/signUp.php" name="register-form">
                 <div class="register-header">
                     <h2 class="register-title">Register</h2>
                     <a href="index.php" class="login-btn">Login ></a>

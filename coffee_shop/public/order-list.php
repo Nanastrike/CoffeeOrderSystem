@@ -44,7 +44,7 @@ if (!$result_set) {
                     <li name="price"><?php echo htmlspecialchars($result['product_price']);?></li>
                     <li name="num"><?php echo htmlspecialchars($result['product_num']);?></li>
                 </ul>
-                <p name="total-price">Total: $<?php echo htmlspecialchars($result['product_num']);?></p>
+                <p name="total-price">Total Price: $<?php echo htmlspecialchars($result['product_price']);?></p>
             </div>
             <?php } ?>
         </div>
