@@ -216,11 +216,24 @@ h1 {
     border-radius: 5px;
 }
 
+/* 通用图片样式 */
+.product-image {
+    width: 100%; /* 图片宽度适应模块宽度 */
+    height: auto; /* 高度自动调整以保持比例 */
+    max-width: 100%; /* 防止图片超出模块宽度 */
+    border-radius: 10px; /* 如果需要，图片边缘圆角 */
+    object-fit: cover; /* 如果需要图片填满模块，但保持比例 */
+}
+
 /* 大屏幕适配 */
 @media (min-width: 1025px) {
     .product {
         width: 45%; /* 大屏幕时每行两个商品 */
         max-width: 400px; /* 最大宽度 */
+    }
+
+    .product-image {
+        max-height: 250px; /* 限制图片最大高度，适配模块 */
     }
 
     #search-input {
@@ -238,10 +251,15 @@ h1 {
         width: 90%; /* 小屏幕时每行一个商品 */
     }
 
+    .product-image {
+        max-height: 180px; /* 限制图片最大高度，适配小屏幕模块 */
+    }
+
     #search-input {
         width: 70%; /* 搜索框宽度为屏幕的 70% */
     }
 }
+
 
 /*Order List*/
 /* 标题样式 */
