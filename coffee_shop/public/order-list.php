@@ -32,9 +32,13 @@ if (!$result_set) {
     <div class="page" id="order-success-page">
         <h1>Your Orders</h1>
         <div class="order-list" name="order-list">
-            <!-- 最新订单将显示在顶部 -->
             <!-- process the result-->
-            <?php while ($result = mysqli_fetch_assoc($result_set)){?>
+            <?php while ($result = mysqli_fetch_assoc($result_set)){
+                $product_name = htmlspecialchars($result['product_name']);
+                $product_price = (float)$result['product_price'];
+                $product_num = (int)$result['product_num'];
+                $total_price = $product_price * $product_num;
+            ?>
             <div class="order" name="order">
                 <h2 name="order-id"><?php echo htmlspecialchars($result['order_id']);?></h2>
 
@@ -44,7 +48,7 @@ if (!$result_set) {
                     <li name="price"><?php echo htmlspecialchars($result['product_price']);?></li>
                     <li name="num"><?php echo htmlspecialchars($result['product_num']);?></li>
                 </ul>
-                <p name="total-price">Total Price: $<?php echo htmlspecialchars($result['product_price']);?></p>
+                <p name="total-price">Total Price: $<?php echo number_format($total_price, 2); ?></p>
             </div>
             <?php } ?>
         </div>
