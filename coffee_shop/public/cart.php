@@ -34,14 +34,14 @@ if ($cart) {
             <form action="update_cart.php" method="post">
                 <input type="hidden" name="name" value="<?php echo $name; ?>">
                 <input type="hidden" name="price" value="<?php echo $price; ?>">
-                <label for="quantity">Quantity:</label>
+                <label for="quantity">Add Quantity:</label>
                 <input type="number" name="quantity" id="quantity" value="<?php echo $quantity; ?>" min="1">
-                <button type="submit">Update Quantity</button>
+                <button type="submit">Check Total Price</button>
             </form>
 
             <!-- Remove Item Form -->
             <form action="remove_cart.php" method="post">
-                <button type="submit">Remove Item</button>
+                <button type="submit">Clear Cart</button>
             </form>
         </div>
         <p class="cart-total">Total: $<?php echo number_format($total, 2); ?></p>
