@@ -35,7 +35,7 @@ function clearError(element) {
 
 // Validation Functions
 function validateEmail(email) {
-    const emailRegex = /^\S+@\S+\.\S+$/;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
     return emailRegex.test(email);
 }
 
