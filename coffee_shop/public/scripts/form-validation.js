@@ -6,17 +6,24 @@ const registerForm = document.querySelector("#register-form");
 const defaultMsg = "";
 const emailErrorMsg = "Please enter a valid email address.";
 const passwordErrorMsg = "Password cannot be empty.";
-const termsErrorMsg = "You must accept the terms.";
+const passwordMatchErrorMsg = "Passwords do not match.";
+const nameErrorMsg = "Name cannot be empty.";
 
 // Utility: Add or Clear Error Messages
 function displayError(element, message) {
     let errorElement = element.nextElementSibling;
-    if (!errorElement || !errorElement.classList.contains("warning")) {
+
+    // Check if the error element exists and is associated with the input field
+    if (errorElement && errorElement.classList.contains("warning")) {
+        // Update existing error message
+        errorElement.textContent = message;
+    } else {
+        // Create new error element
         errorElement = document.createElement("p");
         errorElement.className = "warning";
-        element.parentElement.appendChild(errorElement);
+        errorElement.textContent = message;
+        element.parentNode.insertBefore(errorElement, element.nextSibling);
     }
-    errorElement.textContent = message;
 }
 
 function clearError(element) {
@@ -28,12 +35,16 @@ function clearError(element) {
 
 // Validation Functions
 function validateEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^\S+@\S+\.\S+$/;
     return emailRegex.test(email);
 }
 
 function validatePassword(password) {
     return password.trim() !== "";
+}
+
+function validateName(name) {
+    return name.trim() !== "";
 }
 
 // Form Validation for Login
@@ -62,13 +73,22 @@ function validateLoginForm(e) {
 
 // Form Validation for Register
 function validateRegisterForm(e) {
+    const name = registerForm.querySelector("#register-name");
     const email = registerForm.querySelector("#register-email");
     const password = registerForm.querySelector("#register-password");
-    const confirmPassword = registerForm.querySelector("#confirm-password");
-  //const terms = registerForm.querySelector("#terms");
+    const confirmPassword = registerForm.querySelector("#register-password-again");
 
     let isValid = true;
 
+    // Validate Name
+    if (!validateName(name.value)) {
+        displayError(name, nameErrorMsg);
+        isValid = false;
+    } else {
+        clearError(name);
+    }
+
+    // Validate Email
     if (!validateEmail(email.value)) {
         displayError(email, emailErrorMsg);
         isValid = false;
@@ -76,6 +96,7 @@ function validateRegisterForm(e) {
         clearError(email);
     }
 
+    // Validate Password
     if (!validatePassword(password.value)) {
         displayError(password, passwordErrorMsg);
         isValid = false;
@@ -83,16 +104,40 @@ function validateRegisterForm(e) {
         clearError(password);
     }
 
-    if (password.value !== confirmPassword.value) {
-        displayError(confirmPassword, "Passwords do not match.");
+    // Validate Confirm Password
+    if (password.value !== confirmPassword.value || confirmPassword.value.trim() === "") {
+        displayError(confirmPassword, passwordMatchErrorMsg);
         isValid = false;
     } else {
         clearError(confirmPassword);
     }
 
     if (!isValid) e.preventDefault();
-} 
+}
 
+// Real-Time Validation on 'blur' for Name and Email Fields
+if (registerForm) {
+    const name = registerForm.querySelector("#register-name");
+    const email = registerForm.querySelector("#register-email");
+
+    // Real-Time Validation for Name on 'blur'
+    name.addEventListener("blur", () => {
+        if (!validateName(name.value)) {
+            displayError(name, nameErrorMsg);
+        } else {
+            clearError(name);
+        }
+    });
+
+    // Real-Time Validation for Email on 'blur'
+    email.addEventListener("blur", () => {
+        if (!validateEmail(email.value)) {
+            displayError(email, emailErrorMsg);
+        } else {
+            clearError(email);
+        }
+    });
+}
 
 // Attach Event Listeners
 if (loginForm) loginForm.addEventListener("submit", validateLoginForm);

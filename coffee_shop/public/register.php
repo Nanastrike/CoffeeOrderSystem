@@ -14,13 +14,13 @@
 
 <!-- TO DO: add a user name input
 the password need a double check, so the js validation will work-->
-    <form id="register-form" method="post" action="register.php" name="register-form">
+    <form id="register-form" method="post" action="../private/signUp.php" name="register-form">
                 <div class="register-header">
                     <h2 class="register-title">Register</h2>
                     <a href="index.php" class="login-btn">Login ></a>
                 </div>
-                <label for="register-name">name:</label>
-                <input type="text" id="register-name" name="name" class="input-field" placeholder="Enter your email" >
+                <label for="register-name">Name:</label>
+                <input type="text" id="register-name" name="name" class="input-field" placeholder="Enter your name" >
                 <label for="register-email">Email:</label>
                 <input type="email" id="register-email" name="email" class="input-field" placeholder="Enter your email" >
                 <label for="register-password">Password:</label>
