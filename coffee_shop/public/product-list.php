@@ -65,7 +65,7 @@ error_reporting(E_ALL);
                 <p class="product-price" name="product-price"><?php echo htmlspecialchars ($result['coffee_price']); ?></p>
 
                 <!-- Add to Cart Form -->
-                <form action="add_to_cart.php" method="post">
+                <form action="add_to_cart.php" method="POST">
                     <input type="hidden" name="name" value="<?php echo htmlspecialchars($result['coffee_name']); ?>">
                     <input type="hidden" name="price" value="<?php echo htmlspecialchars($result['coffee_price']); ?>">
                     <input type="hidden" name="quantity" value="1">
