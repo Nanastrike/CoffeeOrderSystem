@@ -37,10 +37,7 @@ if (!$result_set) {
             <?php while ($result = mysqli_fetch_assoc($result_set)){?>
             <div class="order" name="order">
                 <h2 name="order-id"><?php echo htmlspecialchars($result['order_id']);?></h2>
-                <!-- no status and transaction time value in database
-                <p name="order-status">Status: Confirmed</p> 
-                <p name="transaction-time">Transaction Time: 2024-11-18 02:00 PM</p>
-                -->
+
                 <h3>Items:</h3>
                 <ul name="items">
                     <li name="item"><?php echo htmlspecialchars($result['product_name']);?></li>
@@ -50,17 +47,6 @@ if (!$result_set) {
                 <p name="total-price">Total: $<?php echo htmlspecialchars($result['product_num']);?></p>
             </div>
             <?php } ?>
-            <!--<div class="order" name="order">
-                <h2 name="order-id">Order #12345</h2>
-                <p name="order-status">Status: Confirmed</p>
-                <p name="transaction-time">Transaction Time: 2024-11-17 10:00 AM</p>
-                <h3>Items:</h3>
-                <ul name="items">
-                    <li name="item">Latte x1</li>
-                    <li name="item">Cappuccino x2</li>
-                </ul>
-                <p name="total-price">Total: $15.50</p>
-            </div> -->
         </div>
     </div>
 </body>

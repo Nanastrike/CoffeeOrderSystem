@@ -1,6 +1,5 @@
-
-
-<?php   
+<?php
+session_start();   
 //TODO:insert the header code here
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -13,10 +12,10 @@ error_reporting(E_ALL);
         die("Database connection failed: " . mysqli_connect_error());
     }
 
-    // return all the coffee in the database
+    // Return all the coffee in the database
     $sql = "SELECT coffee_name, coffee_price, coffee_description, image_path FROM coffee_details "; 
     $sql .= "ORDER BY coffee_name ASC";
-    //execute the query
+    //Execute the query
     $result_set = mysqli_query($db, $sql);
     if (!$result_set) {
         die("Database query failed: " . mysqli_error($db));
@@ -44,7 +43,7 @@ error_reporting(E_ALL);
             <p>New users can receive a cup of coffee for free. Please note that you can only choose one cup of coffee.</p>
         </div>
 
-        <!-- 搜索和筛选 -->
+        <!-- Search and Filter -->
         <div class="filter-search">
             <input type="text" id="search-input" placeholder="Search by name..." oninput="searchProducts()">
             <select id="price-filter" onchange="filterByPrice()">
@@ -55,73 +54,31 @@ error_reporting(E_ALL);
             </select>
         </div>
 
-        <div class="products">
-            
+        <!-- Process the result -->
+        <?php while ($result = mysqli_fetch_assoc($result_set)){?>
 
-                <!-- process the result -->
-            <?php while ($result = mysqli_fetch_assoc($result_set)){?>
+            <div class="product">
+                <img src="<?php echo htmlspecialchars($result['image_path']); ?>" alt="<?php echo htmlspecialchars($result['coffee_name']); ?>" class="product-image">
+                <h3 class="product-name" name="product-name"><?php echo htmlspecialchars($result['coffee_name']);?></h3>
+                <p class="product-description" name="product-description"><?php echo htmlspecialchars($result['coffee_description']); ?></p>
+                <p class="product-price" name="product-price"><?php echo htmlspecialchars ($result['coffee_price']); ?></p>
 
-                <div class="product">
-                    <img src="<?php echo htmlspecialchars($result['image_path']); ?>" alt="<?php echo htmlspecialchars($result['coffee_name']); ?>" class="product-image">
-                    <h3 class="product-name" name="product-name"><?php echo htmlspecialchars($result['coffee_name']);?></h3>
-                    <p class="product-description" name="product-description"><?php echo htmlspecialchars($result['coffee_description']); ?></p>
-                    <p class="product-price" name="product-price"><?php echo htmlspecialchars ($result['coffee_price']); ?></p>
-                </div>
-                <button onclick="addItem('<?php echo $result['coffee_name']; ?>', <?php echo $result['coffee_price']; ?>)">
-                    Add to Cart
-                </button>
+                <!-- Add to Cart Form -->
+                <form action="add_to_cart.php" method="post">
+                    <input type="hidden" name="name" value="<?php echo htmlspecialchars($result['coffee_name']); ?>">
+                    <input type="hidden" name="price" value="<?php echo htmlspecialchars($result['coffee_price']); ?>">
+                    <input type="hidden" name="quantity" value="1">
+                    <button type="submit">Add to Cart</button>
+                </form>
+            </div>
 
+        <?php } ?>
 
-
-            <!-- 商品1 
-            <div class="product" data-price="4.5" data-name="Latte">
-                <img src="coffee-latte.jpg" alt="Latte" class="product-image">
-                <h3 class="product-name">Latte-Hot</h3>
-                <p class="product-description">Rich and creamy latte. This is the hot option.</p>
-                <p class="product-price">$4.50</p>
-                <div class="product-variations">
-                    <button class="btn-add-to-cart" onclick="addToCart('Latte', 'Hot')">Add</button>
-                </div>
-            </div>-->
-                <!-- 商品1 
-            <div class="product" data-price="4.5" data-name="Latte">
-                <img src="coffee-latte.jpg" alt="Latte" class="product-image">
-                <h3 class="product-name">Latte-Cold</h3>
-                <p class="product-description">Rich and creamy latte. This is the cold option.</p>
-                <p class="product-price">$4.50</p>
-                <div class="product-variations">
-                    <button class="btn-add-to-cart" onclick="addToCart('Latte', 'Cold')">Add</button>
-                </div>
-            </div>-->
-
-            <!-- 商品2 
-            <div class="product" data-price="5" data-name="Cappuccino">
-                <img src="coffee-Cappuccino.jpg" alt="Cappuccino" class="product-image">
-                <h3 class="product-name">Cappuccino-Hot</h3>
-                <p class="product-description">A classic Italian coffee. This is the hot option.</p>
-                <p class="product-price">$5.00</p>
-                <div class="product-variations">
-                    <button class="btn-add-to-cart" onclick="addToCart('Cappuccino', 'Hot')">Add</button>
-                </div>
-            </div>-->
-                <!-- 商品2 
-            <div class="product" data-price="5" data-name="Cappuccino">
-                <img src="coffee-Cappuccino.jpg" alt="Cappuccino" class="product-image">
-                <h3 class="product-name">Cappuccino-Cold</h3>
-                <p class="product-description">A classic Italian coffee. This is the cold option.</p>
-                <p class="product-price">$5.00</p>
-                <div class="product-variations">
-                    <button class="btn-add-to-cart" onclick="addToCart('Cappuccino', 'Cold')">Add</button>
-                </div>
-            </div>-->
-        </div>
-
-        <button class="btn" id="go-to-cart" onclick="window.location.href='cart.php'">Go to Cart</button>
-        </div>
-            <?php } ?>
+            <button class="btn" id="go-to-cart" onclick="window.location.href='cart.php'">Go to Cart</button>
 
         <!--TO DO: add a fixed footer php file
         <?php include 'footerEm.php'; ?> 
         -->
+    </div>
 </body>
 </html>

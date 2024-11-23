@@ -18,7 +18,6 @@ if ($cart) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Cart</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
 </head>
 <body>
     <h1>Your Cart</h1>
@@ -26,12 +25,27 @@ if ($cart) {
     <?php if (!$cart): ?>
         <p>Your cart is empty. <a href="product-list.php">Shop now!</a></p>
     <?php else: ?>
-        <div class="cart-item">
+        <div class="cart-item">  
             <h3 class="cart-item-name"><?php echo $name; ?></h3>
             <p class="cart-item-price">Price: $<?php echo $price; ?></p>
             <p class="cart-item-quantity">Quantity: <?php echo $quantity; ?></p>
-            <p class="cart-total">Total: $<?php echo number_format($total, 2); ?></p>
+
+            <!-- Quantity Update Form -->
+            <form action="update_cart.php" method="post">
+                <input type="hidden" name="name" value="<?php echo $name; ?>">
+                <input type="hidden" name="price" value="<?php echo $price; ?>">
+                <label for="quantity">Quantity:</label>
+                <input type="number" name="quantity" id="quantity" value="<?php echo $quantity; ?>" min="1">
+                <button type="submit">Update Quantity</button>
+            </form>
+
+            <!-- Remove Item Form -->
+            <form action="remove_cart.php" method="post">
+                <button type="submit">Remove Item</button>
+            </form>
         </div>
+        <p class="cart-total">Total: $<?php echo number_format($total, 2); ?></p>
+
         <form action="process_order.php" method="POST">
             <button type="submit" name="process_order" class="btn">Confirm Order</button>
         </form>

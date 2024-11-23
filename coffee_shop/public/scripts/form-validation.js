@@ -90,13 +90,6 @@ function validateRegisterForm(e) {
         clearError(confirmPassword);
     }
 
-/*  if (!terms.checked) {
-        displayError(terms, termsErrorMsg);
-        isValid = false;
-    } else {
-        clearError(terms);
-    }
-*/
     if (!isValid) e.preventDefault();
 } 
 
