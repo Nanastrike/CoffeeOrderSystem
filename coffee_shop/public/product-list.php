@@ -69,7 +69,7 @@ error_reporting(E_ALL);
                     <input type="hidden" name="name" value="<?php echo htmlspecialchars($result['coffee_name']); ?>">
                     <input type="hidden" name="price" value="<?php echo htmlspecialchars($result['coffee_price']); ?>">
                     <input type="hidden" name="quantity" value="1">
-                    <button type="submit">Add to Cart</button>
+                    <button type="submit" class="btn-add-to-cart">Add to Cart</button>
                 </form>
             </div>
         
