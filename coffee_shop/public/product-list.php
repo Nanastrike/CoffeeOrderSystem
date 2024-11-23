@@ -54,6 +54,7 @@ error_reporting(E_ALL);
             </select>
         </div>
 
+        <div class="products">
         <!-- Process the result -->
         <?php while ($result = mysqli_fetch_assoc($result_set)){?>
 
@@ -71,14 +72,14 @@ error_reporting(E_ALL);
                     <button type="submit">Add to Cart</button>
                 </form>
             </div>
-
+        
         <?php } ?>
-
+        
             <button class="btn" id="go-to-cart" onclick="window.location.href='cart.php'">Go to Cart</button>
 
         <!--TO DO: add a fixed footer php file
         <?php include 'footerEm.php'; ?> 
         -->
-    </div>
+        </div>
 </body>
 </html>
