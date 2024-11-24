@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$cart = $_SESSION['cart'] ?? null; // Access the single item in the cart
+$cart = $_SESSION['cart'] ?? null;
 
 if ($cart) {
     $name = htmlspecialchars($cart['name']);
@@ -20,35 +20,40 @@ if ($cart) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Your Cart</h1>
+    <div id="cart-container">
+        <h1>Your Cart</h1>
 
-    <?php if (!$cart): ?>
-        <p>Your cart is empty. <a href="product-list.php">Shop now!</a></p>
-    <?php else: ?>
-        <div class="cart-item">  
-            <h3 class="cart-item-name"><?php echo $name; ?></h3>
-            <p class="cart-item-price">Price: $<?php echo $price; ?></p>
-            <p class="cart-item-quantity">Quantity: <?php echo $quantity; ?></p>
-
-            <!-- Quantity Update Form -->
-            <form action="update_cart.php" method="post">
-                <input type="hidden" name="name" value="<?php echo $name; ?>">
-                <input type="hidden" name="price" value="<?php echo $price; ?>">
-                <label for="quantity">Add Quantity:</label>
-                <input type="number" name="quantity" id="quantity" value="<?php echo $quantity; ?>" min="1">
-                <button type="submit">Check Total Price</button>
-            </form>
-
-            <!-- Remove Item Form -->
-            <form action="remove_cart.php" method="post">
-                <button type="submit">Clear Cart</button>
-            </form>
-        </div>
-        <p class="cart-total">Total: $<?php echo number_format($total, 2); ?></p>
-
-        <form action="process_order.php" method="POST">
-            <button type="submit" name="process_order" class="btn">Confirm Order</button>
-        </form>
-    <?php endif; ?>
+        <?php if (!$cart): ?>
+            <div id="cart-page">
+                <p>Your cart is empty.</p>
+                <a href="product-list.php" class="shop-now-btn">Shop now!</a>
+            </div>
+        <?php else: ?>
+            <div class="cart-item">
+                <div class="item-details">
+                    <span class="cart-item-name"><?php echo $name; ?></span>
+                    <span class="cart-item-price">Price: $<?php echo $price; ?></span>
+                    <span class="cart-item-quantity">Quantity: <?php echo $quantity; ?></span>
+                </div>
+                <form action="update_cart.php" method="post" class="item-controls">
+                    <input type="hidden" name="name" value="<?php echo $name; ?>">
+                    <input type="hidden" name="price" value="<?php echo $price; ?>">
+                    <label for="quantity">Add Quantity:</label>
+                    <input type="number" name="quantity" id="quantity" value="<?php echo $quantity; ?>" min="1">
+                    <button type="submit" class="btn check-btn">Check Total Price</button>
+                    <span class="cart-total-price">Total: $<?php echo number_format($total, 2); ?></span>
+                </form>
+            </div>
+            <div class="cart-actions">
+                <form action="remove_cart.php" method="post">
+                    <button type="submit" class="btn">Clear Cart</button>
+                </form>
+                <form action="process_order.php" method="POST">
+                    <button type="submit" name="process_order" class="btn">Confirm Order</button>
+                </form>
+            </div>
+        <?php endif; ?>
+    </div>
 </body>
 </html>
+
