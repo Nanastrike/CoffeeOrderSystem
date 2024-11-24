@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,17 +9,11 @@
 </head>
 <body>
 
-    <!-- TO DO: add a fixed php title here, you need to create a headerEm.php by yourself
-    <?php include 'headerEm.php';?>
-    -->
+    <!-- <?php include 'headerEm.php';?> -->
 
     <div class="page" id="auth-page">
-        <div class="brand-logo">
-            <img src="logo.png" alt="Brand Logo" name="brand-logo">
-        </div>
         <h1>Welcome to Coffee Paradise</h1>
         <div class="auth-forms">
-            <!-- 登录表单 -->
             <!-- display the error message -->
             <?php
                 if (isset($_GET['error'])){
@@ -34,24 +26,20 @@
             ?>
 
             <form id="login-form" method="POST" action="../private/login_check.php">
-                <h2>Login</h2>
+                <div class="register-login-header">
+                    <h2>Login</h2>
+                    <a href="register.php" class="register-btn">Register</a>
+                </div>
                 <label for="login-email">Email:</label>
-                <input type="email" id="login-email" name="email" class="input-field" placeholder="Enter your email" >
+                <input type="email" id="login-email" name="email" class="input-field" placeholder="Enter your email">
                 <label for="login-password">Password:</label>
-                <input type="password" id="login-password" name="password" class="input-field" placeholder="Enter your password" >
+                <input type="password" id="login-password" name="password" class="input-field" placeholder="Enter your password">
                 <button type="submit" class="btn" name="login-submit">Login</button>
             </form>    
         
         </div>
-        <div>
-        <a href='register.php'>Register</a>
-        </div>
     </div>
 
-    <!--TO DO: add a fixed footer php file
-        <?php include 'footerEm.php'; ?> 
-        -->
 
 </body>
 </html>
-

@@ -1,6 +1,5 @@
 <?php
 session_start();   
-//TODO:insert the header code here
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -34,13 +33,10 @@ error_reporting(E_ALL);
 </head>
 <body>
     <div class="page" id="order-page">
-        <div class="brand-banner">
-            <img src="banner.jpg" alt="Coffee Paradise Banner">
-        </div>
         <h1>Select Your Coffee</h1>
         <div class="store-info">
             <h2 class="store-name">Coffee Paradise</h2>
-            <p>New users can receive a cup of coffee for free. Please note that you can only choose one cup of coffee.</p>
+            <p>New users can receive a cup of coffee for free. Please note that you can only choose one type coffee.</p>
         </div>
 
         <!-- Search and Filter -->
@@ -76,10 +72,6 @@ error_reporting(E_ALL);
         <?php } ?>
         
             <button class="btn" id="go-to-cart" onclick="window.location.href='cart.php'">Go to Cart</button>
-
-        <!--TO DO: add a fixed footer php file
-        <?php include 'footerEm.php'; ?> 
-        -->
         </div>
 </body>
 </html>

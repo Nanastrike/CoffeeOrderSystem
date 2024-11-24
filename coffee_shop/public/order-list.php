@@ -1,5 +1,4 @@
 <?php
-//TODO:insert the header code here
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -25,7 +24,7 @@ if (!$result_set) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order List</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -40,13 +39,11 @@ if (!$result_set) {
                 $total_price = $product_price * $product_num;
             ?>
             <div class="order" name="order">
-                <h2 name="order-id"><?php echo htmlspecialchars($result['order_id']);?></h2>
-
-                <h3>Items:</h3>
+                <h2 name="order-id">OrderID:<?php echo htmlspecialchars($result['order_id']);?></h2>
                 <ul name="items">
                     <li name="item"><?php echo htmlspecialchars($result['product_name']);?></li>
-                    <li name="price"><?php echo htmlspecialchars($result['product_price']);?></li>
-                    <li name="num"><?php echo htmlspecialchars($result['product_num']);?></li>
+                    <li name="price">Unit Price:<?php echo htmlspecialchars($result['product_price']);?></li>
+                    <li name="num">Number:<?php echo htmlspecialchars($result['product_num']);?></li>
                 </ul>
                 <p name="total-price">Total Price: $<?php echo number_format($total_price, 2); ?></p>
             </div>
