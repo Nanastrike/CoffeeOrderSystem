@@ -1,3 +1,4 @@
+<!--Session part is written by Jiu Cheng, html part is written by Anyi Ding -->
 <?php
 session_start();
 
