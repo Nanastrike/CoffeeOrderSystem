@@ -1,3 +1,4 @@
+// This file was written by Jiu Cheng
 // DOM Elements
 const loginForm = document.querySelector("#login-form");
 const registerForm = document.querySelector("#register-form");

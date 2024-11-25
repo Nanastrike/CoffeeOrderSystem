@@ -1,3 +1,4 @@
+// This file is written by Jiu Cheng
 // Search Products
 function searchProducts() {
     // Get the search query
