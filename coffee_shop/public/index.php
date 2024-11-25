@@ -16,6 +16,7 @@
         <div class="auth-forms">
             <!-- display the error message -->
             <?php
+            //this following part is written by Luo Qinyu 
                 if (isset($_GET['error'])){
                     if ($_GET['error'] == 'invalid_email') {
                         echo '<p class="error_msg">Invalid email address.</p>';

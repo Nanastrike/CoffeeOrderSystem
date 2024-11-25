@@ -1,5 +1,6 @@
-<?php
 
+<!--this file is written by Luo Qinyu -->
+<?php
 require_once('db_credentials.php');
 //conncet to the database
 //then confirm the connection otherwise return error
@@ -20,3 +21,5 @@ function db_disconnect($connection){
         mysqli_close($connection);
     }
 }
+
+?>

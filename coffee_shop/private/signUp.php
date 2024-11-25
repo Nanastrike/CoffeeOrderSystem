@@ -1,6 +1,6 @@
 <?php
 session_start(); // Start the session
-
+//this following part is written by Luo Qinyu 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -81,6 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Close the statement
         mysqli_stmt_close($stmt);
+        //this following part is written by Luo Qinyu 
     } else {
         // Handle prepare error
         echo "Error preparing statement: " . mysqli_error($db);

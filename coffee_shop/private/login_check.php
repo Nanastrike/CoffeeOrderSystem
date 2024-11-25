@@ -1,6 +1,6 @@
 <?php
 session_start();
-
+//this following part is written by Luo Qinyu 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -10,7 +10,7 @@ $db = db_connect();
 
 //Handle the from values sent by login.php
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){ //if user clicks the submit
-    //$name = $_POST['name'];
+    //design the input value
     $emailInput = $_POST['email'];
     $passwordInput = $_POST['password'];
    // Escape user inputs to prevent SQL injection
@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ //if user clicks the submit
     //Check if the email exists
     if($result && $result->num_rows>0){
         $row = mysqli_fetch_assoc($result);
+        //this part above is written by Luo Qinyu
 
         //Verify the password
         if(password_verify($passwordInput, $row['password'])){
@@ -40,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ //if user clicks the submit
             header("Location: ../public/index.php?error=invalid_password");
             exit();
         }
+        //this following part is written by Luo Qinyu 
     }else{
         //Invalid email
         header("Location: ../public/index.php?error=invalid_email");

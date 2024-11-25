@@ -1,4 +1,5 @@
 <?php
+//this following part is written by Luo Qinyu 
 session_start();   
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -52,6 +53,7 @@ error_reporting(E_ALL);
 
         <div class="products">
         <!-- Process the result -->
+        <!--this following part is written by Luo Qinyu -->
         <?php while ($result = mysqli_fetch_assoc($result_set)){?>
 
             <div class="product">

@@ -1,6 +1,7 @@
 <?php
 session_start(); // Start the session to access $_SESSION
 
+//this following part is written by Luo Qinyu 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -59,6 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') { // If user clicks the submit button
         header("Location: cart.php?error=empty_cart_or_not_logged_in");
         exit();
     }
+    //this following part is written by Luo Qinyu 
 } else {
     header("Location: cart.php");
     exit();

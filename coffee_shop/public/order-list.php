@@ -1,4 +1,5 @@
 <?php
+//this following part is written by Luo Qinyu 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
@@ -39,6 +40,7 @@ if (!$result_set) {
                 $total_price = $product_price * $product_num;
             ?>
             <div class="order" name="order">
+            <!--this following part is written by Luo Qinyu -->
                 <h2 name="order-id">OrderID:<?php echo htmlspecialchars($result['order_id']);?></h2>
                 <ul name="items">
                     <li name="item"><?php echo htmlspecialchars($result['product_name']);?></li>

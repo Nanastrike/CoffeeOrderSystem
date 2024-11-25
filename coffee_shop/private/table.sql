@@ -1,3 +1,5 @@
+--this file is written by Luo Qinyu 
+
 -- database: 'coffee shop' and php web application user
 CREATE DATABASE coffee_shop;
 GRANT USAGE ON *.* TO 'appuser'@'localhost' IDENTIFIED BY 'password';
