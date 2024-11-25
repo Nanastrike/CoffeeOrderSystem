@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-
+//connect database
     require_once('../private/database.php');
     $db = db_connect();
     if (!$db) {
@@ -22,7 +22,6 @@ error_reporting(E_ALL);
     }
     ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,7 +35,7 @@ error_reporting(E_ALL);
     <div class="page" id="order-page">
         <h1>Select Your Coffee</h1>
         <div class="store-info">
-            <h2 class="store-name">Coffee Paradise</h2>
+            <h2 class="store-name">Douje Coffee</h2>
             <p>New users can receive a cup of coffee for free. Please note that you can only choose one type coffee.</p>
         </div>
 
@@ -55,7 +54,7 @@ error_reporting(E_ALL);
         <!-- Process the result -->
         <!--this following part is written by Luo Qinyu -->
         <?php while ($result = mysqli_fetch_assoc($result_set)){?>
-
+            <!--establish the products by retrive data from database-->
             <div class="product">
                 <img src="<?php echo htmlspecialchars($result['image_path']); ?>" alt="<?php echo htmlspecialchars($result['coffee_name']); ?>" class="product-image">
                 <h3 class="product-name" name="product-name"><?php echo htmlspecialchars($result['coffee_name']);?></h3>
