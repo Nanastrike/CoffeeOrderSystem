@@ -8,9 +8,6 @@
     <script src="scripts/form-validation.js" defer></script>
 </head>
 <body>
-
-    <!-- <?php include 'headerEm.php';?> -->
-
     <div class="page" id="auth-page">
         <h1>Welcome to Coffee Paradise</h1>
         <div class="auth-forms">
@@ -26,6 +23,7 @@
                 }
             ?>
 
+                <!-- login form, pass the value to php file -->
             <form id="login-form" method="POST" action="../private/login_check.php">
                 <div class="register-login-header">
                     <h2>Login</h2>

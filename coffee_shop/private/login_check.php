@@ -53,5 +53,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){ //if user clicks the submit
     exit();
 }
 
-include "headerEm.php";
 ?>

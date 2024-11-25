@@ -15,6 +15,7 @@
             <h2 class="register-title">Register</h2>
             <a href="index.php" class="login-btn">Login ></a>
             </div>
+            <!--collect users' information -->
             <label for="register-name">Name:</label>
             <input type="text" id="register-name" name="name" class="input-field" placeholder="Enter your name" >
 
