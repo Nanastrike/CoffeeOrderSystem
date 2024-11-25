@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="page" id="auth-page">
-        <h1>Welcome to Coffee Paradise</h1>
+        <h1>Welcome to Douje Coffee</h1>
         <div class="auth-forms">
             <!-- display the error message -->
             <?php

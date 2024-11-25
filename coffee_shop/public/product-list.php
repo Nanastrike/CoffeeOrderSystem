@@ -35,7 +35,7 @@ error_reporting(E_ALL);
     <div class="page" id="order-page">
         <h1>Select Your Coffee</h1>
         <div class="store-info">
-            <h2 class="store-name">Coffee Paradise</h2>
+            <h2 class="store-name">Douje Coffee</h2>
             <p>New users can receive a cup of coffee for free. Please note that you can only choose one type coffee.</p>
         </div>
 
