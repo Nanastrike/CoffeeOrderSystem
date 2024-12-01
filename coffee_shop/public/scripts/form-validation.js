@@ -1,145 +1,157 @@
-// This file was written by Jiu Cheng
-// DOM Elements
-const loginForm = document.querySelector("#login-form");
-const registerForm = document.querySelector("#register-form");
+// Select input elements
+let nameInput = document.querySelector("#register-name");
+let emailInput = document.querySelector("#register-email");
+let passwordInput = document.querySelector("#register-password");
+let confirmPasswordInput = document.querySelector("#register-password-again");
 
-// Validation Messages
-const defaultMsg = "";
-const emailErrorMsg = "Please enter a valid email address.";
-const passwordErrorMsg = "Password cannot be empty.";
-const passwordMatchErrorMsg = "Passwords do not match.";
-const nameErrorMsg = "Name cannot be empty.";
+// Create paragraph elements to display error messages and assign the class "warning"
+let nameError = document.createElement('p');
+nameError.setAttribute("class", "warning");
 
-// Utility: Add or Clear Error Messages
-function displayError(element, message) {
-    let errorElement = element.nextElementSibling;
+let emailError = document.createElement('p');
+emailError.setAttribute("class", "warning");
 
-    // Check if the error element exists and is associated with the input field
-    if (errorElement && errorElement.classList.contains("warning")) {
-        // Update existing error message
-        errorElement.textContent = message;
+let passwordError = document.createElement('p');
+passwordError.setAttribute("class", "warning");
+
+let confirmPasswordError = document.createElement('p');
+confirmPasswordError.setAttribute("class", "warning");
+
+// Append error message elements directly after the input fields
+nameInput.insertAdjacentElement('afterend', nameError); // Name field
+emailInput.insertAdjacentElement('afterend', emailError); // Email field
+passwordInput.insertAdjacentElement('afterend', passwordError); // Password field
+confirmPasswordInput.insertAdjacentElement('afterend', confirmPasswordError); // Confirm Password field
+
+// Define global variables for error messages and default message
+let defaultMsg = "";
+let nameErrorMsg = "Name cannot be empty.";
+let emailErrorMsg = "Please enter a valid email address.";
+let passwordErrorMsg = "Password cannot be empty.";
+let confirmPasswordErrorMsg = "Passwords do not match.";
+
+// Validation functions
+function validateName() {
+    let name = nameInput.value.trim(); // Remove whitespace
+    if (name == "") {
+        error = nameErrorMsg;
     } else {
-        // Create new error element
-        errorElement = document.createElement("p");
-        errorElement.className = "warning";
-        errorElement.textContent = message;
-        element.parentNode.insertBefore(errorElement, element.nextSibling);
+        error = defaultMsg;
     }
+    return error;
 }
 
-function clearError(element) {
-    const errorElement = element.nextElementSibling;
-    if (errorElement && errorElement.classList.contains("warning")) {
-        errorElement.textContent = defaultMsg;
-    }
-}
-
-// Validation Functions
-function validateEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
-    return emailRegex.test(email);
-}
-
-function validatePassword(password) {
-    return password.trim() !== "";
-}
-
-function validateName(name) {
-    return name.trim() !== "";
-}
-
-// Form Validation for Login
-function validateLoginForm(e) {
-    const email = loginForm.querySelector("#login-email");
-    const password = loginForm.querySelector("#login-password");
-
-    let isValid = true;
-
-    if (!validateEmail(email.value)) {
-        displayError(email, emailErrorMsg);
-        isValid = false;
+function validateEmail() {
+    let email = emailInput.value.trim();
+    // Use a regex that prohibits numbers after the dot
+    let regexp = /^[^\s@]+@[^\s@]+\.[A-Za-z]{2,}$/;
+    if (regexp.test(email)) {
+        error = defaultMsg;
     } else {
-        clearError(email);
+        error = emailErrorMsg;
     }
-
-    if (!validatePassword(password.value)) {
-        displayError(password, passwordErrorMsg);
-        isValid = false;
-    } else {
-        clearError(password);
-    }
-
-    if (!isValid) e.preventDefault();
+    return error;
 }
 
-// Form Validation for Register
-function validateRegisterForm(e) {
-    const name = registerForm.querySelector("#register-name");
-    const email = registerForm.querySelector("#register-email");
-    const password = registerForm.querySelector("#register-password");
-    const confirmPassword = registerForm.querySelector("#register-password-again");
-
-    let isValid = true;
-
-    // Validate Name
-    if (!validateName(name.value)) {
-        displayError(name, nameErrorMsg);
-        isValid = false;
+function validatePassword() {
+    let password = passwordInput.value;
+    if (password == "") {
+        error = passwordErrorMsg;
     } else {
-        clearError(name);
+        error = defaultMsg;
     }
-
-    // Validate Email
-    if (!validateEmail(email.value)) {
-        displayError(email, emailErrorMsg);
-        isValid = false;
-    } else {
-        clearError(email);
-    }
-
-    // Validate Password
-    if (!validatePassword(password.value)) {
-        displayError(password, passwordErrorMsg);
-        isValid = false;
-    } else {
-        clearError(password);
-    }
-
-    // Validate Confirm Password
-    if (password.value !== confirmPassword.value || confirmPassword.value.trim() === "") {
-        displayError(confirmPassword, passwordMatchErrorMsg);
-        isValid = false;
-    } else {
-        clearError(confirmPassword);
-    }
-
-    if (!isValid) e.preventDefault();
+    return error;
 }
 
-// Real-Time Validation on 'blur' for Name and Email Fields
-if (registerForm) {
-    const name = registerForm.querySelector("#register-name");
-    const email = registerForm.querySelector("#register-email");
-
-    // Real-Time Validation for Name on 'blur'
-    name.addEventListener("blur", () => {
-        if (!validateName(name.value)) {
-            displayError(name, nameErrorMsg);
-        } else {
-            clearError(name);
-        }
-    });
-
-    // Real-Time Validation for Email on 'blur'
-    email.addEventListener("blur", () => {
-        if (!validateEmail(email.value)) {
-            displayError(email, emailErrorMsg);
-        } else {
-            clearError(email);
-        }
-    });
+function validateConfirmPassword() {
+    let password = passwordInput.value;
+    let confirmPassword = confirmPasswordInput.value;
+    if (password !== confirmPassword) {
+        error = confirmPasswordErrorMsg;
+    } else {
+        error = defaultMsg;
+    }
+    return error;
 }
 
-// Attach Event Listeners
-if (loginForm) loginForm.addEventListener("submit", validateLoginForm);
-if (registerForm) registerForm.addEventListener("submit", validateRegisterForm);
+// Event handler for form submission
+function validate() {
+    let valid = true;
+
+    // Validate name
+    let nameValidation = validateName();
+    if (nameValidation !== defaultMsg) {
+        nameError.textContent = nameValidation;
+        valid = false;
+    } else {
+        nameError.textContent = defaultMsg;
+    }
+
+    // Validate email
+    let emailValidation = validateEmail();
+    if (emailValidation !== defaultMsg) {
+        emailError.textContent = emailValidation;
+        valid = false;
+    } else {
+        emailError.textContent = defaultMsg;
+    }
+
+    // Validate password
+    let passwordValidation = validatePassword();
+    if (passwordValidation !== defaultMsg) {
+        passwordError.textContent = passwordValidation;
+        valid = false;
+    } else {
+        passwordError.textContent = defaultMsg;
+    }
+
+    // Validate confirm password
+    let confirmPasswordValidation = validateConfirmPassword();
+    if (confirmPasswordValidation !== defaultMsg) {
+        confirmPasswordError.textContent = confirmPasswordValidation;
+        valid = false;
+    } else {
+        confirmPasswordError.textContent = defaultMsg;
+    }
+
+    return valid;
+}
+
+// Add event listeners to clear error messages when inputs are corrected
+nameInput.addEventListener("blur", () => {
+    let x = validateName();
+    if (x == defaultMsg) {
+        nameError.textContent = defaultMsg;
+    }
+});
+
+emailInput.addEventListener("blur", () => {
+    let x = validateEmail();
+    if (x == defaultMsg) {
+        emailError.textContent = defaultMsg;
+    }
+});
+
+passwordInput.addEventListener("blur", () => {
+    let x = validatePassword();
+    if (x == defaultMsg) {
+        passwordError.textContent = defaultMsg;
+    }
+});
+
+confirmPasswordInput.addEventListener("blur", () => {
+    let x = validateConfirmPassword();
+    if (x == defaultMsg) {
+        confirmPasswordError.textContent = defaultMsg;
+    }
+});
+
+// Select the form element
+let form = document.querySelector("#register-form");
+
+// Attach the validate function to the form's submit event
+form.addEventListener("submit", function(event) {
+    if (!validate()) {
+        event.preventDefault(); // Prevent form submission if validation fails
+    }
+});

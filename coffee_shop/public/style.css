@@ -14,9 +14,16 @@ body {
 }
 
 /* Form area style */
+
+.warning {
+    color: #BF0A0D;
+    font-size: 0.9em;
+    min-height: 1.2em; /* Adjust the value to match the expected error message height */
+}
+
 .auth-forms {
-    width: 100%;
-    max-width: 400px;
+    width: 130%;
+    max-width: 600px;
     margin: 20px auto;
     padding: 20px;
     background: rgba(255, 255, 255, 0.95); 
@@ -213,7 +220,7 @@ h1 {
     border-radius: 10px; 
 }
 
-/* respontive */
+/* responsive */
 @media (min-width: 1025px) {
     .product {
         width: 45%; 
