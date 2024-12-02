@@ -26,7 +26,7 @@ confirmPasswordInput.insertAdjacentElement('afterend', confirmPasswordError); //
 // Define global variables for error messages and default message
 let defaultMsg = "";
 let nameErrorMsg = "Name cannot be empty.";
-let emailErrorMsg = "Please enter a valid email address.";
+let emailErrorMsg = "Invalid email address.";
 let passwordErrorMsg = "Password cannot be empty.";
 let confirmPasswordErrorMsg = "Passwords do not match.";
 

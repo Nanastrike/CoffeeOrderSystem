@@ -19,6 +19,8 @@ body {
     color: #BF0A0D;
     font-size: 0.9em;
     min-height: 1.2em; /* Adjust the value to match the expected error message height */
+    width: 70%;
+    box-sizing: border-box; /* Ensure padding and borders are included in width */
 }
 
 .auth-forms {
@@ -28,6 +30,7 @@ body {
     padding: 20px;
     background: rgba(255, 255, 255, 0.95); 
     border-radius: 10px;
+    overflow: hidden; /* prevents content from overflowing the container's boundaries.*/
 }
 
 
