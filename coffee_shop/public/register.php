@@ -10,7 +10,7 @@
 
 <body>
     <form id="register-form" method="post" action="../private/signUp.php" name="register-form">
-        <div class="auth-forms">
+        <div class="auth-forms" id="regis">
             <div class="register-header">
             <h2 class="register-title">Register</h2>
             <a href="index.php" class="login-btn">Login ></a>

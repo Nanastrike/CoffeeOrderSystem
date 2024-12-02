@@ -24,15 +24,17 @@ body {
 }
 
 .auth-forms {
-    width: 130%;
+    width: 100%;
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
     background: rgba(255, 255, 255, 0.95); 
     border-radius: 10px;
-    overflow: hidden; /* prevents content from overflowing the container's boundaries.*/
 }
 
+#regis {
+    width: 130% ;
+} 
 
 h1 {
     text-align: center;
