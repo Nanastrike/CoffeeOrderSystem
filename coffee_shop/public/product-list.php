@@ -32,6 +32,12 @@ error_reporting(E_ALL);
     <script src="scripts/search-filter.js" defer></script>
 </head>
 <body>
+
+<!-- Logout Button -->
+<div class="logout-container">
+    <a href="logout.php" class="logout-btn">< Logout</a>
+</div>
+
     <div class="page" id="order-page">
         <h1>Select Your Coffee</h1>
         <div class="store-info">

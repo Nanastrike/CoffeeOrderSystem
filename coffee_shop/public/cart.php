@@ -21,6 +21,12 @@ if ($cart) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<!-- Logout Button -->
+<div class="logout-container">
+    <a href="logout.php" class="logout-btn">< Logout</a>
+</div>
+
     <div id="cart-container">
         <h1>Your Cart</h1>
 

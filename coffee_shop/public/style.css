@@ -23,6 +23,13 @@ body {
     box-sizing: border-box; /* Ensure padding and borders are included in width */
 }
 
+.logout-container {
+    position: fixed; /* Positions the element relative to the viewport */
+    top: 20px;       
+    right: 20px;     
+    z-index: 1000;   /* Ensures it stays on top */
+}
+
 .auth-forms {
     width: 100%;
     max-width: 600px;
@@ -59,7 +66,7 @@ h1 {
 }
 
 
-.register-btn, .login-btn {
+.register-btn, .login-btn, .logout-btn {
     font-size: 16px;
     text-decoration: none;
     color: white;
@@ -69,7 +76,7 @@ h1 {
     font-weight: bold;
 }
 
-.register-btn:hover, .login-btn:hover {
+.register-btn:hover, .login-btn:hover, .logout-btn:hover {
     background-color: white;
     color: black;
     border: 1px solid black;

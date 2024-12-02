@@ -30,6 +30,12 @@ if (!$result_set) {
     <script src="script.js" defer></script>
 </head>
 <body>
+
+<!-- Logout Button -->
+<div class="logout-container">
+    <a href="logout.php" class="logout-btn">< Logout</a>
+</div>
+
     <div class="page" id="order-success-page">
         <h1>Your Orders</h1>
         <div class="order-list" name="order-list">
