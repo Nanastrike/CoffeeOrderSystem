@@ -1,3 +1,4 @@
+// This file is written by Jiu Cheng
 // Select input elements
 let nameInput = document.querySelector("#register-name");
 let emailInput = document.querySelector("#register-email");
