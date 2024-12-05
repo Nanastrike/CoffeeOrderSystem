@@ -13,6 +13,13 @@ body {
     min-height: 100vh;
 }
 
+.logout-container {
+    position: fixed; /* Positions the element relative to the viewport */
+    top: 20px;       
+    right: 20px;     
+    z-index: 1000;   /* Ensures it stays on top */
+}
+
 /* Form area style */
 
 .warning {
@@ -21,13 +28,6 @@ body {
     min-height: 1.2em; /* Adjust the value to match the expected error message height */
     width: 70%;
     box-sizing: border-box; /* Ensure padding and borders are included in width */
-}
-
-.logout-container {
-    position: fixed; /* Positions the element relative to the viewport */
-    top: 20px;       
-    right: 20px;     
-    z-index: 1000;   /* Ensures it stays on top */
 }
 
 .auth-forms {
