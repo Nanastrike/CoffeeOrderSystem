@@ -1,7 +1,7 @@
 <?php
 session_start(); // Start the session to access $_SESSION
 
-//this following part is written by Luo Qinyu 
+//the php part is written by Luo Qinyu 
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
